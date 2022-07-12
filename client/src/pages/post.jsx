@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {Link, useParams} from "react-router-dom";
+const axios = require("axios");
 
 function Post() {
   const [data, setData] = useState([]);
@@ -12,7 +13,10 @@ function Post() {
       .then((data) => setData(data));
     setLoadState(false);
   }, [id]);
-  console.log(data);
+  const deletePost = (id) => {
+    axios.post(`http://localhost:8000/get/${id}/delete`)
+    .then((response) => console.log(response));
+  }
   return (
     <div>
       {loadState && <p>Now loading...</p>}
@@ -22,7 +26,8 @@ function Post() {
                 <div key={post.id}>
                     <h1>{post.title}</h1>
                     <p>{post.body}</p>
-                    <Link to={{pathname: `/blog/${id}/edit`, data: data}}>Edit Post</Link>
+                    <Link to={{pathname: `/blog/${id}/edit`}}>Edit Post</Link>
+                    <button onClick={() => {deletePost(id)}}>Delete Post</button>
                 </div>
             )
         })
