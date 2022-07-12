@@ -5,6 +5,8 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 //Page imports
 import Homepage from "./pages/home";
+import Post from "./pages/post";
+import EditPost from "./pages/editPost";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,6 +14,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage/>}/>
+        <Route path="/blog/:id" element={<Post/>}/>
+        <Route path="/blog/:id/edit" element={<EditPost/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

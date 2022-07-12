@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 
 //const axios = require("axios").default;
 
@@ -19,7 +20,7 @@ function Blog() {
         return (
           <div key={post.id}>
             <h3>{post.title}</h3>
-            <p>{post.body}</p>
+            <Link to={`blog/${post.id}`}>Click to View Post</Link>
           </div>
         );
       })}
