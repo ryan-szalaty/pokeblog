@@ -23,11 +23,11 @@ function Post() {
       {!loadState && (
         data.map((post) => {
             return (
-                <div key={post.id}>
+                <div key={post.postId}>
                     <h1>{post.title}</h1>
                     <p>{post.body}</p>
                     <Link to={{pathname: `/blog/${id}/edit`}}>Edit Post</Link>
-                    <button onClick={() => {deletePost(id)}}>Delete Post</button>
+                    <Link to={{pathname: "/"}} onClick={() => {deletePost(id)}}>Delete Post</Link>
                 </div>
             )
         })

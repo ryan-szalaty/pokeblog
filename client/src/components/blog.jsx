@@ -18,9 +18,9 @@ function Blog() {
       {loadState && <p>Now loading...</p>}
       {data.map((post) => {
         return (
-          <div key={post.id}>
+          <div key={post.postId}>
             <h3>{post.title}</h3>
-            <Link to={`blog/${post.id}`}>Click to View Post</Link>
+            <Link to={`blog/${post.postId}`}>Click to View Post</Link>
           </div>
         );
       })}

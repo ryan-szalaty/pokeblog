@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
 const axios = require("axios");
 
 function Form() {
@@ -12,6 +13,7 @@ function Form() {
         title: title,
         body: body
     }).then((response) => {
+      alert("Post added! Please refresh the page.");
         console.log(response);
     });
   }
@@ -41,7 +43,7 @@ function Form() {
             value={body}
           />
         </label>
-        <button type="submit" onClick={addPost}>Submit</button>
+        <Link type="submit" to={{pathname: "/"}} onClick={addPost}>Submit</Link>
       </form>
     </div>
   );

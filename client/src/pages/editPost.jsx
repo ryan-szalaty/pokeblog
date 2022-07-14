@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 const axios = require("axios");
 
 function EditPost() {
@@ -45,9 +45,7 @@ function EditPost() {
             value={body}
           />
         </label>
-        <button type="submit" onClick={editPost}>
-          Submit
-        </button>
+        <Link type="submit" to={{pathname: "/"}} onClick={editPost}>Edit Post</Link>
       </form>
     </div>
   );
