@@ -8,6 +8,7 @@ import Homepage from "./pages/home";
 import Post from "./pages/post";
 import EditPost from "./pages/editPost";
 import Register from "./pages/register";
+import Login from "./pages/login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +17,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/blog/:id" element={<Post/>}/>
         <Route path="/blog/:id/edit" element={<EditPost/>}/>
       </Routes>

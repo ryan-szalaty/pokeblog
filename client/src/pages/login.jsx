@@ -2,40 +2,29 @@ import { useState } from "react";
 import {Link} from "react-router-dom";
 const axios = require("axios");
 
-function Register() {
-  const [name, setName] = useState([]);
+function Login() {
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-  const addUser = () => {
-    axios.post("http://localhost:8000/register", {
-        name: name,
+  const loginUser = () => {
+    axios.post("http://localhost:8000/login", {
         email: email,
         password: password
     }).then((response) => {
-      alert("User successfully registered.");
+      alert("User found!");
         console.log(response);
     });
   }
   return (
     <div>
-      <h1>Register:</h1>
+      <h1>Login:</h1>
       <form
         onSubmit={(event) => {
           handleSubmit(event);
         }}  
       >
-        <label name="name">
-          name:
-          <input
-            type="text"
-            name="name"
-            onChange={(event) => setName(event.target.value)}
-            value={name}
-          />
-        </label>
         <label name="email">
           email:
           <input
@@ -54,10 +43,10 @@ function Register() {
             value={password}
           />
         </label>
-        <Link type="submit" to={{pathname: "/"}} onClick={addUser}>Submit</Link>
+        <Link type="submit" to={{pathname: "/"}} onClick={loginUser}>Submit</Link>
       </form>
     </div>
   );
 }
 
-export default Register;
+export default Login;
